@@ -1,0 +1,10 @@
+.main {
+	margin: 3rem auto;
+	width: 100%;
+	height: 100vh;
+	background-color: lavenderblush;
+}
+
+.main h1 {
+	text-align: center;
+}

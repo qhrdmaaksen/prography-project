@@ -25,9 +25,8 @@ const TodoForm = (props) => {
   }
 
   return (
-    <form onSubmit={submitHandler} className={classes.container}>
+    <form onSubmit={submitHandler}>
       <div>
-        <h1>Todos</h1>
         <input id="title" type="text" ref={todoRef} required minLength={1} onKeyPress={onKeyPressHandler}/>
       </div>
     </form>
