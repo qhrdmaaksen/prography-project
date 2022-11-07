@@ -11,7 +11,7 @@ const MainNavigation = () => {
               프로그라피 프론트 김민우
             </li>
             <li className={classes.navTodo}>
-              <NavLink to="/todos">Todo</NavLink>
+              <NavLink to="/">Todo</NavLink>
             </li>
             <li>
               <NavLink to="/movie">영화</NavLink>

@@ -1,14 +1,36 @@
-import { Form } from "react-router-dom";
 import classes from "./TodoForm.module.css";
+import { useRef } from "react";
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+  const todoRef = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const enteredTodo = todoRef.current.value;
+    if (enteredTodo.length === 0) {
+      return alert("할 일을 입력해주세요");
+    }
+    const todosData = {
+      id: new Date().toISOString(),
+      title: enteredTodo,
+    };
+    console.log('todosData:::',todosData)
+    props.onAddTodos(todosData);
+  };
+
+  const onKeyPressHandler = (e) => {
+    if(e.key === 'Enter'){
+      submitHandler(e)
+    }
+  }
+
   return (
-    <Form method="post" action="/todos">
+    <form onSubmit={submitHandler} className={classes.container}>
       <div>
-        <input id="title" type="text" name="title" required minLength={1} />
+        <h1>Todos</h1>
+        <input id="title" type="text" ref={todoRef} required minLength={1} onKeyPress={onKeyPressHandler}/>
       </div>
-      <button className={classes.todoInputBTN}>추가</button>
-    </Form>
+    </form>
   );
 };
 export default TodoForm;
