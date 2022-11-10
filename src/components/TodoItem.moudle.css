@@ -1,0 +1,29 @@
+.container {
+}
+
+.details {
+	display: flex;
+	justify-content: space-between;
+}
+
+.todo_title {
+	font-size: 30rem;
+}
+
+.container button {
+	margin-left: 10rem;
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0.5rem 0;
+}
+
+.actions button {
+	background-color: transparent;
+	border: 1px solid white;
+	margin-left: 0.5rem;
+	padding: 0.15rem 1rem;
+	color: white;
+}

@@ -14,20 +14,28 @@ const TodoForm = (props) => {
       id: new Date().toISOString(),
       title: enteredTodo,
     };
-    console.log('todosData:::',todosData)
+    console.log("todosData:::", todosData);
     props.onAddTodos(todosData);
   };
 
   const onKeyPressHandler = (e) => {
-    if(e.key === 'Enter'){
-      submitHandler(e)
+    if (e.key === "Enter") {
+      submitHandler(e);
     }
-  }
+  };
 
   return (
     <form onSubmit={submitHandler}>
-      <div>
-        <input id="title" type="text" ref={todoRef} required minLength={1} onKeyPress={onKeyPressHandler}/>
+      <div className={classes.container}>
+        <input
+          id="title"
+          type="text"
+          ref={todoRef}
+          required
+          minLength={1}
+          onKeyPress={onKeyPressHandler}
+          placeholder={"무엇을 해야하나요?"}
+        />
       </div>
     </form>
   );
