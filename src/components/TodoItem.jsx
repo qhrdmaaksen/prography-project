@@ -1,4 +1,4 @@
-import classes from "./TodoItem.moudle.css";
+import classes from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
 	const {title} = props;
@@ -9,8 +9,8 @@ const TodoItem = (props) => {
 					<span className={classes.todo_title}>{title}</span>
         </div>
         <div className = {classes.actions}>
-          <button>수정</button>
-          <button>삭제</button>
+          <button type="button">수정</button>
+          <button type="button">삭제</button>
         </div>
       </div>
     </li>
