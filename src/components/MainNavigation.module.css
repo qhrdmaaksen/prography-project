@@ -5,18 +5,16 @@
 	justify-content: space-between;
 	padding: 0.5rem;
 	width: 100%;
-	margin-bottom: -4rem;
+	margin-bottom: -5rem;
 }
 
 .header ul {
-	box-shadow: inset 0 -10px  #ffff99;
 	display: flex;
 	padding-bottom: 2rem;
 }
 
 .header li {
 	list-style: none;
-	text-decoration: none;
 	font-size: 1rem;
 }
 
@@ -25,6 +23,10 @@
 	font-size: 1.2rem;
 	margin-left: 22rem;
 	margin-right: 37rem;
+}
+
+.navHomeName span {
+	color: #616161;
 }
 
 .navTodo {

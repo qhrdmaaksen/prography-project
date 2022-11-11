@@ -8,7 +8,7 @@ const MainNavigation = () => {
         <nav>
           <ul>
             <li className={classes.navHomeName}>
-              프로그라피 프론트 김민우
+              <span>프로그라피 프론트 김민우</span>
             </li>
             <li className={classes.navTodo}>
               <NavLink to="/">Todo</NavLink>

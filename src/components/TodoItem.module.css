@@ -1,29 +1,40 @@
 .container {
+	border-bottom: 1px solid lightgray;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .details {
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
+}
+
+.details span {
+	width: 100%;
 }
 
 .todo_title {
-	font-size: 2rem;
-}
-
-.container button {
-	margin-left: 10rem;
+	font-size: 1rem;
 }
 
 .actions {
-	display: flex;
-	justify-content: flex-end;
-	margin: 0.5rem 0;
+	width: 100%;
+	float: right;
 }
-
 .actions button {
 	background-color: transparent;
 	border: 1px solid white;
 	margin-left: 0.5rem;
 	padding: 0.15rem 1rem;
-	color: blue;
+	line-height: 1rem;
+}
+
+.modifyBTN button {
+	padding-left: 12rem;
+	color: #61dafb;
+}
+.deleteBTN button {
+	color: #b3807a;
+	margin-left: -1rem;
 }

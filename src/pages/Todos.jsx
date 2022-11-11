@@ -5,9 +5,9 @@ import { useCallback } from "react";
 import Card from "../components/Card";
 
 const DUMMY_TODO_ITEMS = [
-  { id: "t1", title: "Finish the course" },
-  { id: "t2", title: "Learn all about the course main topic" },
-  { id: "t3", title: "Help other students in the course Q&A" },
+  { id: "t1", title: "아침 스트레칭으로 하루를 시작하는 비타민777" },
+  { id: "t2", title: "점심 식사" },
+  { id: "t3", title: "저녁 산책" },
 ]
 
 const Todos = (callback, deps, props) => {
