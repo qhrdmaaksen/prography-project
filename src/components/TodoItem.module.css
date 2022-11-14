@@ -7,7 +7,7 @@
 
 .details {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 }
 
 .details span {
@@ -18,14 +18,18 @@
 	font-size: 1rem;
 }
 
+.complete_todo_title {
+	text-decoration: line-through;
+}
+
 .actions {
 	width: 100%;
-	float: right;
 }
 .actions button {
 	background-color: transparent;
 	border: 1px solid white;
 	margin-left: 0.5rem;
+
 	padding: 0.15rem 1rem;
 	line-height: 1rem;
 }

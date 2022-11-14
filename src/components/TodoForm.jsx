@@ -5,6 +5,7 @@ const TodoForm = (props) => {
   const todoRef = useRef();
 
   const submitHandler = (event) => {
+    
     event.preventDefault();
     const enteredTodo = todoRef.current.value;
     if (enteredTodo.length === 0) {

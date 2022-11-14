@@ -11,6 +11,10 @@
 	border: 1px solid lightgray;
 }
 
+.container button {
+	display: none;
+}
+
 .container input::placeholder {
 	color: lightgray;
 }

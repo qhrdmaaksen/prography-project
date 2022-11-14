@@ -11,9 +11,10 @@ const DUMMY_TODO_ITEMS = [
 ]
 
 const Todos = (callback, deps, props) => {
-  const { sendRequest } = useHttp;
+  const { sendRequest } = useHttp();
   const addFormDataHandler = useCallback(
     (todo) => {
+      console.log('addFormDataHandler ::: 함수 호출')
       sendRequest(
         "https://prography-project-default-rtdb.firebaseio.com/todos.json",
         "POST",
