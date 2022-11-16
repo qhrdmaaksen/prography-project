@@ -12,7 +12,6 @@ const TodoForm = (props) => {
       return alert("할 일을 입력해주세요");
     }
     const todosData = {
-      id: new Date().toISOString(),
       title: enteredTodo,
     };
     console.log("todosData:::", todosData);

@@ -1,8 +1,10 @@
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import useHttp from "../api/http";
-import { useCallback } from "react";
+import {useDispatch, useSelector} from 'react-redux'
 import Card from "../components/Card";
+import {todoActions} from "../store/todo-slice";
+import {useEffect} from "react";
+import {sendTodoData} from "../store/todo-actions";
 
 const DUMMY_TODO_ITEMS = [
   { id: "t1", title: "아침 스트레칭으로 하루를 시작하는 비타민777" },
@@ -10,19 +12,28 @@ const DUMMY_TODO_ITEMS = [
   { id: "t3", title: "저녁 산책" },
 ]
 
+let isInitial = true;
+
 const Todos = (callback, deps, props) => {
-  const { sendRequest } = useHttp();
-  const addFormDataHandler = useCallback(
-    (todo) => {
-      console.log('addFormDataHandler ::: 함수 호출')
-      sendRequest(
-        "https://prography-project-default-rtdb.firebaseio.com/todos.json",
-        "POST",
-        JSON.stringify(todo)
-      );
-    },
-    [sendRequest]
-  );
+  const todo = useSelector(state => state.todo)
+  const dispatch = useDispatch()
+  const addFormDataHandler = (todo) => {
+    console.log('addFormDataHandler 실행:::', todo)
+    dispatch(
+        todoActions.addTodoToList({
+          title: todo.title,
+        })
+    )
+  }
+  useEffect(()=>{
+    if(isInitial){
+      isInitial = false;
+      return;
+    }
+    if(todo.changed) {
+      dispatch(sendTodoData(todo))
+    }
+  }, [todo, dispatch])
   return (
     <Card>
       <TodoForm onAddTodos={addFormDataHandler} />
