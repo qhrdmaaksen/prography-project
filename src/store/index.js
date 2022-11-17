@@ -5,7 +5,7 @@ import todoSliceReducer from "./todo-slice";
 const store = configureStore({
 	reducer: {
 		ui: uiReducer,
-		todo: todoSliceReducer,
+		todoTotalData: todoSliceReducer,
 	}
 })
 export default store;

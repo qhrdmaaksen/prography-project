@@ -3,18 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const todoSlice = createSlice({
   name: "todo",
   initialState: {
-    items: [],
+    item: {},
     changed: false,
   },
   reducers: {
     // 투두리스트 추가 method
     addTodoToList(state, action) {
 			console.log('addTodoToList method 실행:::')
+
+      console.log(state)
+      console.log(action)
       const newTodoItem = action.payload; // 작업에 추가하는 데이터 설정
-      state.items = state.items.push({
+      state.item = {
         title: newTodoItem.title,
-      });
-			console.log('state.items:::', state.items)
+      }
+
+			console.log('state.items:::', state.item)
     },
     // 투두리스트 아이템 삭제 method
     removeTodoItemFromList(state, action) {

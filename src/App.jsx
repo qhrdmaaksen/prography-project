@@ -3,8 +3,17 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Todos from "./pages/Todos";
 import Movie from "./pages/Movie";
 import Layout from "./components/Layout";
+import {useEffect} from "react";
+import {sendTodoData} from "./store/todo-actions";
+import {useDispatch, useSelector} from "react-redux";
+
+
 
 function App() {
+
+
+
+
   return (
     <Router>
       <Layout>

@@ -1,14 +1,18 @@
 import classes from "./TodoItem.module.css";
 import { useState } from "react";
+import {uiActions} from '../store/ui-slice';
+import {useDispatch, useSelector} from 'react-redux';
 
 const TodoItem = (props) => {
+  //const dispatch = useDispatch()
   const { title } = props;
-
+  //const completeCheckTodo = useSelector(state => state.ui.completeTodoCheck)
   const [completeTodo, setCompleteTodo] = useState(false);
 
   // 버튼 클릭 시 completeTodo 현재 상태 반대 상태로 변경
   const toggleCompleteTodoHandler = () => {
-      setCompleteTodo(prevState => !prevState)
+      //dispatch(uiActions.toggleCompleteTodoClick())
+    setCompleteTodo((prevState) => !prevState);
   };
 
   return (
