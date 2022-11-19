@@ -3,13 +3,13 @@ import classes from './TodoList.module.css';
 
 const TodoList = (props) => {
   return (
-    <section className = {classes.container}>
+    <div className = {classes.container}>
       <ul>
         {props.todos.map((todo) => (
           <TodoItem key={todo.id} id={todo.id} title={todo.title} />
         ))}
       </ul>
-    </section>
+    </div>
   );
 };
 export default TodoList;
