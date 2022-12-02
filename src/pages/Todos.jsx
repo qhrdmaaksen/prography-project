@@ -1,18 +1,17 @@
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Card from "../components/UI/Card";
-import { todoActions } from "../store/todo-slice";
+import {todoActions} from "../store/todo-slice";
 import {useEffect, useState} from "react";
-import { sendTodoData, fetchTodoData } from "../store/todo-actions";
+import {fetchTodoData, sendTodoData} from "../store/todo-actions";
 
 let isInitial = true;
 const Todos = (callback, deps, props) => {
-  const [data , setData] = useState([])
-  const getData = useSelector((state) => state.todoTotalData.item)
-  console.log('selector get data ::: ', getData)
-  const todoData = useSelector((state) => state.todoTotalData);
+  const [data, setData] = useState([]);
   const dispatch = useDispatch();
+  const getTodoData = useSelector((state) => state.todoTotalData);
+  console.log("getTodoData", getTodoData);
 
   const addFormDataHandler = (todosData) => {
     console.log("addFormDataHandler 실행:::", todosData);
@@ -27,42 +26,31 @@ const Todos = (callback, deps, props) => {
   useEffect(() => {
     /*dispatch(fetchTodoData());
     console.log('action data',dispatch(fetchTodoData()))*/
-    dispatch(fetchTodoData()).then((response) => {
-      console.log("fetch get response:::", response);
-      const dataTest = []
-      for (const key in response) {
-        const todo = {
-          id: key,
-          title: response[key].title,
-        };
-        dataTest.push(todo);
-        setData(dataTest);
-      console.log("fetch response:::", todo);
-      }
-    })
-  }, [dispatch])
-
+    dispatch(fetchTodoData());
+    dispatch(fetchTodoData()).then((res) => {
+      console.log("res", res);
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
       return;
     }
-
-    if(todoData.changed) {
-      dispatch(sendTodoData(todoData)).then((response) => {
+    if (getTodoData.changed) {
+      dispatch(sendTodoData(getTodoData)).then((response) => {
         console.log("response:::", response);
-        if (response.name) {
-          data.push(todoData)
-          setData(data)
-        }
+        setData(getTodoData);
       });
     }
-  }, [todoData, dispatch, data]);
+  }, [getTodoData, dispatch]);
+
   return (
     <Card>
       <TodoForm onAddTodos={addFormDataHandler} />
-      <TodoList todos={data} />
+      {getTodoData && getTodoData.item.map((todo) => {
+        return <TodoList key={todo.id} id={todo.id} title={todo.title} />;
+      })}
     </Card>
   );
 };

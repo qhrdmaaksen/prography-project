@@ -3,26 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const todoSlice = createSlice({
   name: "todo",
   initialState: {
-    item: {},
+    item: [],
     changed: false,
   },
   reducers: {
     //리듀서 사용 파이어베이스 에서 로드하는 타이틀로 타이틀 교체
     replaceTodo(state, action) {
       state.item = action.payload.item;
+      console.log("replaceTodo", state.item);
     },
     // 투두리스트 추가 method
     addTodoToList(state, action) {
-      console.log("addTodoToList method 실행:::");
-
-      console.log(state);
-      console.log(action);
+      console.log('addTodoToList state ::: ', state);
+      console.log('addTodoToList action ::: ', action);
       const newTodoItem = action.payload; // 작업에 추가하는 데이터 설정
+      const existingItem = state.item.find(item => item.id === newTodoItem.id)
       state.changed = true;
-      state.item = {
+      if(!existingItem){
+        state.item.push({
+          id: newTodoItem.id,
+          title: newTodoItem.title,
+        })
+      }
+      /*state.item = {
         title: newTodoItem.title,
-      };
-
+      };*/
       console.log("state.items:::", state.item);
     },
     // 투두리스트 아이템 삭제 method

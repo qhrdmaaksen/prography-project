@@ -6,30 +6,29 @@ export const fetchTodoData = () => {
     const fetchData = async () => {
       console.log("fetchData method 실행:::");
       const response = await fetch(
-          "https://prography-project-default-rtdb.firebaseio.com/todos.json"
+        "https://prography-project-default-rtdb.firebaseio.com/todos.json"
       );
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
       const data = await response.json();
       console.log("data:::", data);
-      return data;
-      /*const transformedTodo = [];
-			for (const key in data) {
-				const todoObj = {
-					id: key,
-					title: data[key].title,
-				};
-				transformedTodo.push(todoObj);
-			}
-			console.log("fetchData response data::: ", transformedTodo);
-			return transformedTodo;*/
+      const transformedTodo = [];
+      for (const key in data) {
+        const todoObj = {
+          id: key,
+          title: data[key].title,
+        };
+        transformedTodo.push(todoObj);
+      }
+      console.log("fetchData transformedTodo data::: ", transformedTodo);
+      return transformedTodo;
     };
     try {
       const todosData = await fetchData()
       dispatch(
           todoActions.replaceTodo({
-            item: todosData.item || [],
+            item: todosData || [],
           })
       )
       console.log("todosData:::", todosData);
@@ -37,12 +36,12 @@ export const fetchTodoData = () => {
       throw new Error("Something went wrong!");
     }
   };
-}
+};
 
 export const sendTodoData = (todo) => {
   return async () => {
     console.log("sendRequest 호출 :::");
-    console.log('응답 보낸 제목 :',todo.item.title);
+    console.log("응답 보낸 제목 :", todo.item.title);
     // 전송 요청
     const sendRequest = async () => {
       const response = await fetch(
@@ -54,7 +53,7 @@ export const sendTodoData = (todo) => {
           }),
         }
       );
-      console.log('포스트 요청 응답 :::',response);
+      console.log("포스트 요청 응답 :::", response);
       if (!response.ok) {
         throw new Error("todo data 전송 중 오류 발생");
       } else {
