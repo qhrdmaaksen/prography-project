@@ -1,6 +1,5 @@
 import MovieList from "../components/MovieList";
 
-const Movie = () => {
+export const Movie = () => {
   return <MovieList />;
 };
-export default Movie;

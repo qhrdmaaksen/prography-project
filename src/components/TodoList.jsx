@@ -1,7 +1,7 @@
 import TodoItem from "./TodoItem";
 import classes from './TodoList.module.css';
 
-const TodoList = (props) => {
+export const TodoList = (props) => {
   return (
     <div className = {classes.container}>
       <ul>
@@ -10,4 +10,3 @@ const TodoList = (props) => {
     </div>
   );
 };
-export default TodoList;

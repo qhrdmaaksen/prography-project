@@ -11,9 +11,8 @@ const StyledButton = styled.button`
 	color: ${(props) => props.color || 'black'};
 `
 
-const Button = ({children, color}) => {
+export const Button = ({children, color}) => {
 	return (
 			<StyledButton color={color}>{children}</StyledButton>
 	)
 }
-export default Button;

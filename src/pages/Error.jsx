@@ -1,7 +1,7 @@
 import {useRouteError} from "react-router-dom";
 import MainNavigation from "../components/UI/MainNavigation";
 
-const Error = () => {
+export const Error = () => {
 	const error = useRouteError()
 	return (
 			<>
@@ -13,4 +13,3 @@ const Error = () => {
 			</>
 	)
 }
-export default Error;

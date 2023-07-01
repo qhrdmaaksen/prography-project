@@ -1,13 +1,13 @@
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/UI/Card";
-import {todoActions} from "../store/todo-slice";
-import {useEffect, useState} from "react";
-import {fetchTodoData, sendTodoData} from "../store/todo-actions";
+import { todoActions } from "../store/todo-slice";
+import { useEffect, useState } from "react";
+import { fetchTodoData, sendTodoData } from "../store/todo-actions";
 
 let isInitial = true;
-const Todos = (callback, deps, props) => {
+export const Todos = (callback, deps, props) => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const getTodoData = useSelector((state) => state.todoTotalData);
@@ -48,10 +48,10 @@ const Todos = (callback, deps, props) => {
   return (
     <Card>
       <TodoForm onAddTodos={addFormDataHandler} />
-      {getTodoData && getTodoData.item.map((todo) => {
-        return <TodoList key={todo.id} id={todo.id} title={todo.title} />;
-      })}
+      {getTodoData &&
+        getTodoData.item.map((todo) => {
+          return <TodoList key={todo.id} id={todo.id} title={todo.title} />;
+        })}
     </Card>
   );
 };
-export default Todos;

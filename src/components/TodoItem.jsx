@@ -2,7 +2,7 @@ import classes from "./TodoItem.module.css";
 import { useState } from "react";
 import Button from "./UI/Button";
 
-const TodoItem = (props) => {
+export const TodoItem = (props) => {
   const { title } = props;
   const [completeTodo, setCompleteTodo] = useState(false);
 
@@ -37,4 +37,3 @@ const TodoItem = (props) => {
     </li>
   );
 };
-export default TodoItem;

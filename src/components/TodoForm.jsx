@@ -1,7 +1,7 @@
 import classes from "./TodoForm.module.css";
 import { useRef } from "react";
 
-const TodoForm = (props) => {
+export const TodoForm = (props) => {
   const todoRef = useRef();
 
   const submitHandler = (event) => {
@@ -40,4 +40,3 @@ const TodoForm = (props) => {
     </form>
   );
 };
-export default TodoForm;

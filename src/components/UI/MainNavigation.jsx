@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
-const MainNavigation = () => {
+export const MainNavigation = () => {
   return (
     <div className={classes.container}>
       <header className={classes.header}>
@@ -22,4 +22,3 @@ const MainNavigation = () => {
     </div>
   );
 };
-export default MainNavigation;
