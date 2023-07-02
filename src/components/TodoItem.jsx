@@ -1,6 +1,6 @@
 import classes from "./TodoItem.module.css";
 import { useState } from "react";
-import Button from "./UI/Button";
+import { Button } from "./UI";
 
 export const TodoItem = (props) => {
   const { title } = props;

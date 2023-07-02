@@ -1,7 +1,7 @@
 import "./App.css";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Todos, Movie} from "./pages";
-import Layout from "./components/UI/Layout";
+import {Layout} from "./components/UI";
 import {useEffect} from "react";
 import {sendTodoData} from "./store/todo-actions";
 import {useDispatch, useSelector} from "react-redux";

@@ -1,7 +1,6 @@
-import TodoForm from "../components/TodoForm";
-import TodoList from "../components/TodoList";
+import { TodoList, TodoForm } from "../components";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../components/UI/Card";
+import { Card } from "../components/UI";
 import { todoActions } from "../store/todo-slice";
 import { useEffect, useState } from "react";
 import { fetchTodoData, sendTodoData } from "../store/todo-actions";

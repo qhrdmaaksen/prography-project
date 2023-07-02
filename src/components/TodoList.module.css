@@ -5,6 +5,13 @@
 	margin-right: auto;
 }
 
+
+.container h1 {
+	margin: 3rem 0 1.5rem 0;
+	font-size: 2rem;
+	color: #DE5470;
+}
+
 .container ul {
 	list-style: none;
 	margin-left: -2rem;
